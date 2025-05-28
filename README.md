@@ -1,2 +1,2 @@
 # lamp-compose
-![bg left 50%](./img/docker-compose.png)
+![bg left 20%](./img/docker-compose.png)
