@@ -1,2 +1,2 @@
 # lamp-compose
-![](./img/docker-compose.png)
+![ 50%](./img/docker-compose.png)
