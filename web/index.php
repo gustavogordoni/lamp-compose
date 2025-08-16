@@ -1,17 +1,3 @@
-<?php
-
-include 'config/con-mysql.php';
-include 'config/fn.php';
-
-$timezones = array(
-    'SP' => 'America/Sao_Paulo',
-    'BA' => 'America/Bahia'
-);
-
-date_default_timezone_set($timezones['SP']);
-
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -22,24 +8,14 @@ date_default_timezone_set($timezones['SP']);
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-
-    <section>
-        <div onclick="handleGoToPgsql()">
-            <h1>Hello World - PDO MySQL - <?= date('d/m/Y H:i:s') ?></h1>
-            <span><?= listarUsuariosMysql() ?></span>
-        </div>
-    </section>
-
-    <script>
-        const handleGoToPgsql = () => {
-            window.location.href = 'pgsql.php'
-        }
-    </script>
-
+<body>   
+    <div style="text-align: center;">
+        <a href="./mysql.php"><button>PDO MySQL</button></a>
+        <a href="./pgsql.php"><button>PDO PgSQL</button></a>   
+    </div>
 
 <?php
-phpinfo();
+    phpinfo();
 ?>
 </body>
 

@@ -1,6 +1,6 @@
 <?php
 
-include 'config/con-pgsql.php';
+include 'config/con-mysql.php';
 include 'config/fn.php';
 
 $timezones = array(
@@ -25,22 +25,21 @@ date_default_timezone_set($timezones['SP']);
 <body>
     <div style="text-align: center;">
         <a href="index.php"><button>PHP Info</button></a>
-        <a href="./mysql.php"><button>PDO MySQL</button></a>
+        <a href="pgsql.php"><button>PDO PgSQL</button></a>
     </div>
 
     <section>
-        <div onclick="handleGoToMysql()">
-            <h1>Hello World - PDO PostgreSQL - <?= date('d/m/Y H:i:s') ?></h1>
-            <span><?php listarUsuariosPgsql() ?></span>
+        <div onclick="handleGoToPgsql()">
+            <h1>Hello World - PDO MySQL - <?= date('d/m/Y H:i:s') ?></h1>
+            <span><?= listarUsuariosMysql() ?></span>
         </div>
     </section>
 
     <script>
-        const handleGoToMysql = () => {
-            window.location.href = 'mysql.php'
+        const handleGoToPgsql = () => {
+            window.location.href = 'pgsql.php'
         }
     </script>
-
 </body>
 
 </html>
