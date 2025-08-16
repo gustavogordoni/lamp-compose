@@ -14,10 +14,10 @@ services:
     ports:
       # Mapear as portas para ficarem visiveis na máquina host
       - "80:80"
-    links:
-      # Criar conexão com o container do banco de dados
-      - mysql
-      - postgres
+#    links:
+#      # Criar conexão com o container do banco de dados
+#      - mysql
+#      - postgres
 
   postgres:
     image: postgres:12
@@ -91,8 +91,9 @@ volumes:
 
 #-----------------------------------------------------------------------------------------------------------------------------------------------#
 # Caso dê problema para seu PHP conectar ao banco, use a versão 5.7 do MySQL ou faça o tutorial abaixo:
-# docker container exec -it mrb-mysql bash
+# docker container exec -it birazn-ifsp-mysql bash
 # mysql -u root -p
+# Digite a senha: root (por definição padrão)
 # ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';
 # ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'root';
 # ALTER USER 'default'@'%' IDENTIFIED WITH mysql_native_password BY 'secret';
