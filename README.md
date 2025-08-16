@@ -10,6 +10,8 @@ Aqui você encontra um ambiente completo com:
 - **PostgreSQL 12**
 - **pgAdmin 4**
 
+---
+
 ## Principais telas
 
 <details>
