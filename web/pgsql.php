@@ -23,7 +23,7 @@ date_default_timezone_set($timezones['SP']);
 </head>
 
 <body>
-    <div style="text-align: center;">
+    <div class="buttons-container">
         <a href="index.php"><button>PHP Info</button></a>
         <a href="./mysql.php"><button>PDO MySQL</button></a>
     </div>

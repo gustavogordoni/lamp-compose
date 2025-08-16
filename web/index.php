@@ -9,7 +9,7 @@
 </head>
 
 <body>   
-    <div style="text-align: center;">
+    <div class="buttons-container">
         <a href="./mysql.php"><button>PDO MySQL</button></a>
         <a href="./pgsql.php"><button>PDO PgSQL</button></a>   
     </div>
