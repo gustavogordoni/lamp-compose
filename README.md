@@ -10,6 +10,27 @@ Aqui você encontra um ambiente completo com:
 - **PostgreSQL 12**
 - **pgAdmin 4**
 
+## Principais telas
+
+<details>
+<summary>Screenshots</summary>
+<br />
+    <h3 align="center">PHP + Apache - localhost:80/index.php</h3>
+    <div align="center"><img src="img/php.png" width="100%" /></div>
+    <br />
+    <h3 align="center">PHP + Apache - localhost:80/mysql.php</h3>
+    <div align="center"><img src="img/pdoMySQL.png" width="100%" /></div>
+    <br />
+    <h3 align="center">PHP + Apache - localhost:80/pgsql.php</h3>
+    <div align="center"><img src="img/pdoPostgres.png" width="100%" /></div>
+    <br />
+    <h3 align="center">phpMyAdmin - localhost:8080</h3>
+    <div align="center"><img src="img/phpMyAdmin.png" width="100%" /></div>
+    <br />
+    <h3 align="center">PgAdmin - localhost:8081</h3>
+    <div align="center"><img src="img/pgAdmin.png" width="100%" /></div>    
+</details>
+
 ---
 
 ## Tecnologias
