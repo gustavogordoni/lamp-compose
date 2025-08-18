@@ -54,7 +54,16 @@ git clone https://github.com/gustavogordoni/lamp-compose.git
 cd lamp-compose
 ````
 
-2. Suba os containers:
+2. Crie o arquivo de variáveis de ambiente a partir do modelo:
+
+```
+cp .env.example .env
+```
+
+> O arquivo `.env` contém as configurações dos containers.
+> Você pode editar esse arquivo conforme a sua necessidade.
+
+3. Suba os containers:
 
 ```
 docker compose up -d
