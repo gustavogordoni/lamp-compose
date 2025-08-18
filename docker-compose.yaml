@@ -4,59 +4,58 @@ services:
     build:
       context: ./php # Indica onde está o arquivo Dockerfile
       dockerfile: Dockerfile
-
-    container_name: birazn-ifsp-php # Apelido para o container
+    container_name: ${PHP_CONTAINER_NAME:-birazn-ifsp-php} # Apelido para o container
     restart: always
     volumes:
-      - ./web:/var/www/html/ # Irá copiar o conteúdo da pasta src para o container
+      - "${PHP_VOLUME:-./web:/var/www/html}" # Irá copiar o conteúdo da pasta src para o container
     networks:
       - lamp-network
     ports:
       # Mapear as portas para ficarem visiveis na máquina host
-      - "80:80"
+      - "${PHP_PORT:-80}:80"
 #    links:
 #      # Criar conexão com o container do banco de dados
 #      - mysql
 #      - postgres
 
   postgres:
-    image: postgres:12
-    container_name: birazn-ifsp-pgsql
+    image: ${POSTGRES_IMAGE:-postgres:12}
+    container_name: ${POSTGRES_CONTAINER_NAME:-laravel}
     restart: always
     environment:
-      POSTGRES_PASSWORD: postdba
-      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_USER: ${POSTGRES_USER}
     ports:
-      - "5432:5432"
+      - "${POSTGRES_PORT:-5432}:5432"
     volumes:
-      - ./postgres:/var/lib/postgresql/data
+      - ${POSTGRES_VOLUME:-./postgres:/var/lib/postgresql/data}
     networks:
      - lamp-network
 
   pgadmin:
-    image: dpage/pgadmin4
-    container_name: birazn-ifsp-pgadmin
+    image: ${PGADMIN_IMAGE:-dpage/pgadmin4}
+    container_name: ${PGADMIN_CONTAINER_NAME:-birazn-ifsp-pgadmin}
     environment:
-      PGADMIN_DEFAULT_EMAIL: postgres@servidor.com
-      PGADMIN_DEFAULT_PASSWORD: postdba
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-postgres@servidor.com}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-postdba}
     ports:
-      - 8081:80
+      - "${PGADMIN_PORT:-8081}:80"
     depends_on:
       - postgres
     networks:
       - lamp-network
 
   mysql:
-    image: mysql:5.7 # A versão 8.0 está com instabilidades
-    container_name: birazn-ifsp-mysql
+    image: ${MYSQL_IMAGE:-mysql:5.7} # A versão 8.0 está com instabilidades
+    container_name: ${MYSQL_CONTAINER_NAME:-birazn-ifsp-mysql}
     restart: always # Por padrão o Docker não reinicia o container, vamos mudar isso.
     volumes:
-      - ./mysql:/var/lib/mysql
+      - "${MYSQL_VOLUME:-./mysql:/var/lib/mysql}"
     ports:
-      - "3306:3306" # Mapeei a porta para funcionar no Dbeaver, mas não precisaria.
+      - "${MYSQL_PORT}:3306" # Mapeei a porta para funcionar no Dbeaver, mas não precisaria.
     environment:
-      MYSQL_ROOT_PASSWORD: root # Definir senha do usuário root
-      MYSQL_DATABASE: teste # Iniciar o container com um banco criado
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root} # Definir senha do usuário root
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-teste} # Iniciar o container com um banco criado
     networks:
       - lamp-network
 
@@ -65,17 +64,17 @@ services:
       context: ./phpmyadmin
       dockerfile: Dockerfile
 
-    container_name: birazn-ifsp-phpmyadmin
+    container_name: ${PMA_CONTAINER_NAME:-birazn-ifsp-phpmyadmin}
     restart: always
     volumes:
       - /sessions
     ports:
-      - "8080:80"
+      - "${PMA_PORT:-8080}:80"
     links:
       - mysql
     environment:
-      PMA_ARBITRARY: 0 # 1 Isso executará o phpMyAdmin com um servidor arbitrário, permitindo que você especifique o servidor MySQL/MariaDB na página de login.
-      PMA_HOST: mysql
+      PMA_ARBITRARY: ${PMA_ARBITRARY:-0} # 1 Isso executará o phpMyAdmin com um servidor arbitrário, permitindo que você especifique o servidor MySQL/MariaDB na página de login.
+      PMA_HOST: ${PMA_HOST:-mysql}
     networks:
       - lamp-network
 
@@ -88,7 +87,7 @@ volumes:
   mysql:
   web:
     driver: local
-
+    
 #-----------------------------------------------------------------------------------------------------------------------------------------------#
 # Caso dê problema para seu PHP conectar ao banco, use a versão 5.7 do MySQL ou faça o tutorial abaixo:
 # docker container exec -it birazn-ifsp-mysql bash
