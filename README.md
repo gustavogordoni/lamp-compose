@@ -71,7 +71,7 @@ docker compose up -d
 
 3. Acesse os serviços:
 
-* **Aplicação PHP** → [http://localhost](http://localhost)
+* **Aplicação PHP** → [http://localhost:80](http://localhost:80)
 * **phpMyAdmin** → [http://localhost:8080](http://localhost:8080) (root / root)
 * **pgAdmin** → [http://localhost:8081](http://localhost:8081) (postgres@servidor.com / postdba)
 * **MySQL** → `localhost:3306` (root / root)
