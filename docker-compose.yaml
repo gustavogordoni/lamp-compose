@@ -4,7 +4,7 @@ services:
     build:
       context: ./php # Indica onde está o arquivo Dockerfile
       dockerfile: Dockerfile
-    container_name: ${PHP_CONTAINER_NAME:-birazn-ifsp-php} # Apelido para o container
+    container_name: ${PHP_CONTAINER_NAME:-gordoni-php} # Apelido para o container
     restart: always
     volumes:
       - "${PHP_VOLUME:-./web:/var/www/html}" # Irá copiar o conteúdo da pasta src para o container
@@ -34,7 +34,7 @@ services:
 
   pgadmin:
     image: ${PGADMIN_IMAGE:-dpage/pgadmin4}
-    container_name: ${PGADMIN_CONTAINER_NAME:-birazn-ifsp-pgadmin}
+    container_name: ${PGADMIN_CONTAINER_NAME:-gordoni-pgadmin}
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-postgres@servidor.com}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-postdba}
@@ -47,7 +47,7 @@ services:
 
   mysql:
     image: ${MYSQL_IMAGE:-mysql:5.7} # A versão 8.0 está com instabilidades
-    container_name: ${MYSQL_CONTAINER_NAME:-birazn-ifsp-mysql}
+    container_name: ${MYSQL_CONTAINER_NAME:-gordoni-mysql}
     restart: always # Por padrão o Docker não reinicia o container, vamos mudar isso.
     volumes:
       - "${MYSQL_VOLUME:-./mysql:/var/lib/mysql}"
@@ -64,7 +64,7 @@ services:
       context: ./phpmyadmin
       dockerfile: Dockerfile
 
-    container_name: ${PMA_CONTAINER_NAME:-birazn-ifsp-phpmyadmin}
+    container_name: ${PMA_CONTAINER_NAME:-gordoni-phpmyadmin}
     restart: always
     volumes:
       - /sessions
@@ -87,10 +87,10 @@ volumes:
   mysql:
   web:
     driver: local
-    
+
 #-----------------------------------------------------------------------------------------------------------------------------------------------#
 # Caso dê problema para seu PHP conectar ao banco, use a versão 5.7 do MySQL ou faça o tutorial abaixo:
-# docker container exec -it birazn-ifsp-mysql bash
+# docker container exec -it gordoni-mysql bash
 # mysql -u root -p
 # Digite a senha: root (por definição padrão)
 # ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';

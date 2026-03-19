@@ -1,6 +1,6 @@
 <?php
 
-$server = 'birazn-ifsp-mysql'; // Se colocar localhost não irá conectar, pois o container está com o nome mrb-mysql
+$server = 'gordoni-mysql'; // Se colocar localhost não irá conectar, pois o container está com o nome mrb-mysql
 $user = 'root';
 $pass = 'root';
 $db = 'teste'; // Mude para o nome do seu banco

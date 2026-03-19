@@ -1,6 +1,6 @@
 <?php
 
-$server = 'birazn-ifsp-pgsql';
+$server = 'gordoni-pgsql';
 #$server = 'localhost';
 #$server = 'postgres';
 $db = 'postgres';
