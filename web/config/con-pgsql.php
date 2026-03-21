@@ -1,14 +1,12 @@
 <?php
 
 $server = 'gordoni-pgsql';
-#$server = 'localhost';
-#$server = 'postgres';
 $db = 'postgres';
 $user = 'postgres';
 $pass = 'postdba';
 
-if (file_exists(__DIR__ . '/../.env')) {
-    $env = parse_ini_file(__DIR__ . '/../.env', false, INI_SCANNER_RAW);
+if (file_exists('../.env')) {
+    $env = parse_ini_file('/var/www/.env', false, INI_SCANNER_RAW);
     $server = $env['POSTGRES_CONTAINER_NAME'] ?? $server;
     $db     = $env['POSTGRES_DB'] ?? $db;
     $user   = $env['POSTGRES_USER'] ?? $user;

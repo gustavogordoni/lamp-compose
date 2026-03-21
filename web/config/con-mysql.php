@@ -5,8 +5,8 @@ $user = 'root';
 $pass = 'root';
 $db = 'teste'; // Mude para o nome do seu banco
 
-if (file_exists(__DIR__ . '/../.env')) {
-    $env = parse_ini_file(__DIR__ . '/../.env', false, INI_SCANNER_RAW);
+if (file_exists('../.env')) {
+    $env = parse_ini_file('/var/www/.env', false, INI_SCANNER_RAW);
     $server = $env['MYSQL_CONTAINER_NAME'] ?? $server;
     $user   = 'root';
     $pass   = $env['MYSQL_ROOT_PASSWORD'] ?? $pass;

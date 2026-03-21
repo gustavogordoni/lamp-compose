@@ -8,6 +8,7 @@ services:
     restart: always
     volumes:
       - "${PHP_VOLUME:-./web:/var/www/html}" # Irá copiar o conteúdo da pasta src para o container
+      - "./.env:/var/www/html/.env:ro" # Arquivo .env para configuração do banco de dados (read-only)
     networks:
       - lamp-network
     ports:
