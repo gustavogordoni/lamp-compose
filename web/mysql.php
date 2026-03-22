@@ -29,9 +29,13 @@ date_default_timezone_set($timezones['SP']);
     </div>
 
     <section>
-        <div onclick="handleGoToPgsql()">
-            <h1>Hello World - PDO MySQL - <?= date('d/m/Y H:i:s') ?></h1>
-            <span><?= listarUsuariosMysql() ?></span>
+        <div onclick="handleGoToPgsql()" class="mysql-bg">
+            <h1>MySQL - <?= date('d/m/Y H:i:s') ?></h1>
+            <div class="success-banner">
+                <span class="checkmark">&#10003;</span>
+                <span>Conexão estabelecida com sucesso!</span>
+            </div>
+            <span><?= getMySQLInfo() ?></span>
         </div>
     </section>
 

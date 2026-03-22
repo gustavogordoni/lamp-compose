@@ -8,14 +8,14 @@ section {
     margin-top: 100px;
 }
 
-section>div {
+section > div {
     min-width: 200px;
     width: 1000px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    background-color: tomato;
+    background-color: #00739a;
     color: white;
     border-radius: 20px;
     box-shadow: 2px 3px 7px 0 rgba(0, 0, 0, 0.5);
@@ -24,21 +24,27 @@ section>div {
     cursor: pointer;
 }
 
-section>div:hover {
+section > div:hover {
     box-shadow: 0 0 0 0;
     opacity: 90%;
     transform: scale(0.99);
 }
 
-section>div>:nth-child(1) {
-    font-size: 30px;
+section > div > :nth-child(1) {
+    font-size: 28px;
     display: flex;
     justify-content: center;
+    align-items: center;
+    gap: 10px;
     width: 100%;
     font-family: monospace, Arial;
 }
 
-section>div>:nth-child(2)>h1 {
+.db-icon {
+    font-size: 32px;
+}
+
+section > div > :nth-child(2) > h1 {
     text-transform: uppercase;
     font-weight: bolder;
     text-align: center;
@@ -46,7 +52,7 @@ section>div>:nth-child(2)>h1 {
     font-family: monospace, Arial;
 }
 
-section>div>:nth-child(2)>p {
+section > div > :nth-child(2) > p {
     font-size: 18px;
     text-align: left;
     font-family: monospace, Arial;
@@ -64,13 +70,125 @@ button {
     font-size: 16px;
     border: none;
     border-radius: 8px;
-    background-color: #007BFF;
+    background-color: #007bff;
     color: white;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition:
+        background-color 0.3s ease,
+        transform 0.2s ease;
 }
 
 button:hover {
     background-color: #0056b3;
     transform: scale(1.05);
+}
+
+.success-banner {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.checkmark {
+    font-size: 24px;
+}
+
+.db-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+section > div.mysql-bg {
+    /*background-color: #00739a;*/
+    background-color: #007bff;
+}
+
+section > div.pgsql-bg {
+    /*background-color: #00739a;*/
+    background-color: #007bff;
+}
+
+.info-card {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 12px 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    min-width: 180px;
+}
+
+.info-card .label {
+    font-size: 12px;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+.info-card .value {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: monospace;
+}
+
+.section-title {
+    width: 100%;
+    font-size: 20px;
+    margin: 20px 0 15px 0;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 5px;
+}
+
+.db-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.db-item {
+    display: flex;
+    justify-content: space-between;
+    background: rgba(0, 0, 0, 0.15);
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-family: monospace;
+}
+
+.db-name {
+    font-weight: bold;
+}
+
+.db-meta {
+    opacity: 0.8;
+}
+
+.config-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.config-item {
+    background: rgba(0, 0, 0, 0.15);
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-family: monospace;
+}
+
+.config-label {
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-bottom: 4px;
+}
+
+.config-value {
+    font-weight: bold;
+    word-break: break-all;
 }
